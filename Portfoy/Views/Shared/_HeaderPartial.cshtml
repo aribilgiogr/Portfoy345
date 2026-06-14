@@ -1,0 +1,61 @@
+﻿<header class="container-fluid bg-body-tertiary text-center py-3 m-0">
+    <h1>İlker Turan's Portfolio</h1>
+    <p class="lead">Digital Nomad ♦ Solution Developer ♦ Consultant ♦ Instructor</p>
+</header>
+<nav class="navbar navbar-expand-lg bg-body-tertiary shadow">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("index","home")">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        Blog
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- Bu kısma gerçek blog kategorileri gelecek -->
+                        <li>
+                            <a class="dropdown-item" href="@Url.Action("category","blog")">
+                                Category 1
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="@Url.Action("category","blog")">
+                                Category 2
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="@Url.Action("index","blog")">
+                                All Posts
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("index","projects")">
+                        Projects
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("about","home")">
+                        About
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("contact","home")">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
