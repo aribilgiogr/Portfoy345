@@ -1,7 +1,41 @@
-﻿
+﻿@model IEnumerable<Portfoy.Models.ProjectListItemViewModel>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Projects";
 }
 
-<h2>Index</h2>
+<h2>Projects</h2>
+
+<div class="row row-cols-1 row-cols-md-3 g-5">
+    @foreach (var project in Model)
+    {
+        <div class="col">
+            <div class="card h-100 shadow">
+                <img src="@project.ThumbnailUrl" class="card-img-top" alt="@project.Title" />
+                <div class="card-body">
+                    <h6 class="text-primary">@project.Category</h6>
+                    <h4 class="card-title text-decoration-underline">@project.Title</h4>
+                    <h6 class="text-muted">@string.Join(" | ", project.Technologies)</h6>
+                    <p class="lead">@project.ShortDescription</p>
+                </div>
+                <div class="card-footer bg-white d-flex justify-content-between">
+                    <a href="@project.GitHubUrl" class="link-dark">
+                        <i class="fa-brands fa-github"></i> Github
+                    </a>
+                    <a href="@project.LiveDemoUrl" class="link-primary">
+                        <i class="fa-solid fa-globe"></i> Live Demo
+                    </a>
+                    @if (project.IsFeatured)
+                    {
+                        <i class="fa-solid fa-star text-warning"></i>
+                    }
+                    else
+                    {
+                        <i class="fa-regular fa-star text-muted"></i>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
 

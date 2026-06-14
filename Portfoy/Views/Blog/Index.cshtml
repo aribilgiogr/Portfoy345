@@ -4,13 +4,26 @@
 }
 
 <h2>Blog Index</h2>
-<ul>
+<div class="row row-cols-1 row-cols-md-3 g-3">
     @foreach (var post in Model)
     {
-        <li>
-            <h5>@post.Title</h5>
-            <p>@post.Content</p>
-        </li>
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="@post.CoverImage" class="card-img-top" alt="@post.Title" />
+                <div class="card-body">
+                    <h5 class="card-title">@post.Title</h5>
+                    <h6 class="text-muted">@post.AuthorName</h6>
+                    <p class="card-text">@post.Content</p>
+                    <h6>@post.CategoryName</h6>
+                    <div>
+                        @foreach (var tag in post.Tags)
+                        {
+                            <span class="badge text-bg-light border shadow-sm">@tag</span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
     }
-</ul>
+</div>
 
