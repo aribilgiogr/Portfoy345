@@ -29,7 +29,25 @@ namespace Portfoy.Controllers
         // /blog/detail/{id}
         public ActionResult Detail(int id)
         {
-            return View();
+            // Sahte post detay verisi oluşturuluyor.
+            PostDetailViewModel post = new PostDetailViewModel
+            {
+                Id = id,
+                Title = $"Post Title {id}",
+                Content = $"This is the content of post {id}.",
+                CoverImage = $"https://picsum.photos/800/450?random={id}",
+                ImageGalery = new string[]
+                {
+                    $"https://picsum.photos/800/450?random={id + 1}",
+                    $"https://picsum.photos/800/450?random={id + 2}",
+                    $"https://picsum.photos/800/450?random={id + 3}"
+                },
+                AuthorName = $"Author {id % 4 + 1}",
+                Tags = new string[] { "Tag1", "Tag2" },
+                CategoryName = $"Category {id % 3 + 1}",
+                PublishedDate = System.DateTime.Now.AddDays(-id)
+            };
+            return View(post);
         }
 
         // /blog/category?category_name={category_name}

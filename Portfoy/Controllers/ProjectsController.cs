@@ -33,7 +33,28 @@ namespace Portfoy.Controllers
         // /Projects/Detail/{id}
         public ActionResult Detail(int id)
         {
-            return View();
+            ProjectDetailViewModel project = new ProjectDetailViewModel
+            {
+                Id = id,
+                Title = $"Project {id}",
+                ShortDescription = $"This is a short description for project {id}.",
+                DetailedDescription = $"This is a detailed description for project {id}. It includes more information about the project, its features, and technologies used.",
+                ThumbnailUrl = $"https://picsum.photos/800/450?random={id}",
+                ImageUrls = new List<string>
+                {
+                    $"https://picsum.photos/800/450?random={id + 10}",
+                    $"https://picsum.photos/800/450?random={id + 20}",
+                    $"https://picsum.photos/800/450?random={id + 30}"
+                },
+                Technologies = new List<string> { "C#", "ASP.NET MVC", "Entity Framework" },
+                Category = "Web Development",
+                GitHubUrl = $"#",
+                LiveDemoUrl = $"#",
+                StartDate = System.DateTime.Now.AddMonths(-6),
+                EndDate = null,
+                IsFeatured = id % 2 == 0
+            };
+            return View(project);
         }
     }
 }
